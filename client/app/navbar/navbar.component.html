@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-sm navbar-expand-md navbar-dark" style="background-color: darkorange;">
+  <a class="navbar-brand" routerLink="/">
+    <img src="/assets/LOGO_LIGHT.png" alt="" width="200px" class="d-inline-block align-top">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+          aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+    </ul>
+    <div>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item"><a routerLink="/login" class="nav-item nav-link text-white" routerLinkActive="active"
+               *ngIf="!this.auth.loggedIn">
+          <i class="fa fa-sign-in"></i> Login
+        </a></li>
+        <li class="nav-item"><a routerLink="/register" class="nav-link text-white" routerLinkActive="active"
+               *ngIf="!this.auth.loggedIn">
+          <i class="fa fa-user-plus"></i> Register
+        </a></li>
+        <li class="nav-item"><a routerLink="/account" class="nav-link text-white" routerLinkActive="active"
+               *ngIf="this.auth.loggedIn">
+          <i class="fa fa-user"></i> Account
+        </a></li>
+        <li class="nav-item"><a routerLink="/admin" class="nav-link text-white" routerLinkActive="active"
+               *ngIf="this.auth.loggedIn && this.auth.isAdmin">
+          <i class="fa fa-lock"></i> Admin
+        </a></li>
+        <li class="nav-item"><a routerLink="/logout" class="nav-link text-white" routerLinkActive="active"
+               *ngIf="this.auth.loggedIn">
+          <i class="fa fa-sign-out"></i> Logout
+        </a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

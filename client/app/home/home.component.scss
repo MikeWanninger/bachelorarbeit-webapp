@@ -1,0 +1,28 @@
+.container-fluid{
+  padding: 0px;
+  padding-bottom: 20px;
+}
+
+$color-grey: #212529;
+$color-orange: #FF8C00;
+
+.card {
+  border-radius: 0px;
+  background-color: $color-grey;
+  border: 1px solid #32383E;
+}
+
+
+
+a{
+  text-decoration: none;
+}
+
+.card:hover {
+  background-color: $color-orange;
+}
+
+.table th, td {
+  padding-left: 0px;
+  border-bottom: 1px solid #32383E;
+}
