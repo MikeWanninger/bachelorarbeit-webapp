@@ -5,27 +5,31 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { ToastComponent } from './toast/toast.component';
 import { LoadingComponent } from './loading/loading.component';
+import {PlzDirective} from './directives/plz/plz.directive';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   imports: [
-    BrowserModule,
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule
   ],
   exports: [
     // Shared Modules
-    BrowserModule,
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     // Shared Components
     ToastComponent,
-    LoadingComponent
+    LoadingComponent,
+    PlzDirective
   ],
   declarations: [
     ToastComponent,
-    LoadingComponent
+    LoadingComponent,
+    PlzDirective
   ],
   providers: [
     ToastComponent

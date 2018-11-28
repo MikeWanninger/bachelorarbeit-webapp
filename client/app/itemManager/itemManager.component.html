@@ -1,0 +1,108 @@
+<div class="container-fluid">
+  <button class="btn btn-primary" (click)="toggleMenu()" *ngIf="isMobile">open <i class=""></i></button>
+  <div class="row">
+    <div class="col-3" [ngClass]="{
+      'col-4': !isMobile,
+      'col-0': isMobile,
+      'col-md-4': !isMobile,
+      'col-md-0': isMobile,
+      'col-sm-4': !isMobile,
+      'col-sm-0': isMobile}">
+      <div class="nav-side-menu" [ngStyle]="{left: getMenuPosition(), display: getDisplay()}" >
+        <!--    <div class="brand">Brand Logo</div>
+            <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>-->
+
+        <div class="menu-list">
+          <ul id="menu-content" class="menu-content collapse out" [ngClass]="{collapse: isMobile}">
+            <li [ngClass]="{active: site === 'settings'}" style="cursor: pointer" (click)="setPage('settings')">
+              <a>
+                <i class="fa fa-dashboard fa-lg"></i> Einstellungen
+              </a>
+            </li>
+
+            <!--        <li  data-toggle="collapse" data-target="#products" class="collapsed active">
+                      <a href="#"><i class="fa fa-gift fa-lg"></i> UI Elements <span class="arrow"></span></a>
+                    </li>-->
+            <!--        <ul class="sub-menu collapse" id="products">
+                      <li class="active"><a href="#">CSS3 Animation</a></li>
+                      <li><a href="#">General</a></li>
+                      <li><a href="#">Buttons</a></li>
+                      <li><a href="#">Tabs & Accordions</a></li>
+                      <li><a href="#">Typography</a></li>
+                      <li><a href="#">FontAwesome</a></li>
+                      <li><a href="#">Slider</a></li>
+                      <li><a href="#">Panels</a></li>
+                      <li><a href="#">Widgets</a></li>
+                      <li><a href="#">Bootstrap Model</a></li>
+                    </ul>-->
+
+
+            <!--        <li data-toggle="collapse" data-target="#service" class="collapsed">
+                      <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>
+                    </li>-->
+            <!--        <ul class="sub-menu collapse" id="service">
+                      <li>New Service 1</li>
+                      <li>New Service 2</li>
+                      <li>New Service 3</li>
+                    </ul>-->
+
+
+            <!--        <li data-toggle="collapse" data-target="#new" class="collapsed">
+                      <a href="#"><i class="fa fa-car fa-lg"></i> New <span class="arrow"></span></a>
+                    </li>-->
+            <!--        <ul class="sub-menu collapse" id="new">
+                      <li>New New 1</li>
+                      <li>New New 2</li>
+                      <li>New New 3</li>
+                    </ul>-->
+
+
+            <li [ngClass]="{active: site === 'user'}" style="cursor: pointer" (click)="setPage('user')">
+              <a>
+                <i class="fa fa-user fa-lg"></i> Benutzer
+              </a>
+            </li>
+
+            <li [ngClass]="{active: site === 'burger'}" style="cursor: pointer" (click)="setPage('burger')">
+              <a>
+                <i class="fa fa-users fa-lg"></i> Burger
+              </a>
+            </li>
+
+            <li [ngClass]="{active: site === 'sidedish'}" style="cursor: pointer" (click)="setPage('sidedish')">
+              <a>
+                <i class="fa fa-users fa-lg"></i> Beilagen
+              </a>
+            </li>
+
+            <li [ngClass]="{active: site === 'ingredients'}" style="cursor: pointer" (click)="setPage('ingredients')">
+              <a>
+                <i class="fa fa-users fa-lg"></i> Zutaten
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-8" [ngClass]="{'col-8': !isMobile, 'col-12': isMobile,'col-md-8': !isMobile,
+      'col-md-12': isMobile, 'col-sm-8': !isMobile, 'col-sm-12': isMobile}">
+      <div [ngSwitch]="site">
+        <div *ngSwitchCase="'settings'" style="color: #fff;">
+          <app-config-settings></app-config-settings>
+        </div>
+        <div *ngSwitchCase="'user'">
+          <app-config-user></app-config-user>
+        </div>
+        <div *ngSwitchCase="'burger'">
+          <app-config-burger></app-config-burger>
+        </div>
+        <div *ngSwitchCase="'sidedish'">
+          <app-config-sidedish></app-config-sidedish>
+        </div>
+        <div *ngSwitchCase="'ingredients'">
+          <app-config-ingredient></app-config-ingredient>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

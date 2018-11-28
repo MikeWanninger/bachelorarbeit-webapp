@@ -4,9 +4,11 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 
 import { AuthService } from '../services/auth.service';
 import { ToastComponent } from '../shared/toast/toast.component';
+import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'app-login',
+  styleUrls: ['login.component.scss'],
   templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
@@ -25,7 +27,8 @@ export class LoginComponent implements OnInit {
   constructor(private auth: AuthService,
               private formBuilder: FormBuilder,
               private router: Router,
-              public toast: ToastComponent) { }
+              public toast: ToastComponent,
+              private userService: UserService) { }
 
   ngOnInit() {
     if (this.auth.loggedIn) {
@@ -47,9 +50,19 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.auth.login(this.loginForm.value).subscribe(
-      res => this.router.navigate(['/']),
-      error => this.toast.setMessage('invalid email or password!', 'danger')
+      res => {
+        if (this.auth.currentUser.address) {
+          this.userService.addressAdded = true;
+        }
+        if (this.userService.addressAdded) {
+          this.router.navigate(['/']);
+        } else {
+          this.router.navigate(['/address']);
+        }
+      },
+      error => {
+        this.toast.setMessage('invalid email or password!', 'danger');
+      }
     );
   }
-
 }

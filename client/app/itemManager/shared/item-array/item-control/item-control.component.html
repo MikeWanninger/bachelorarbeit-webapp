@@ -1,0 +1,18 @@
+<div class="form-group" [formGroup]="item" style="width: 100%">
+  <div class="row" style="margin-top: 50px">
+    <div class="col-11">
+      <h2 class="heading">{{item.value.head}} {{index}}</h2>
+    </div>
+    <div class="col-1">
+      <button class="btn btn-danger float-right" (click)="removed.emit(index)">
+        <i class="fa fa-times" style="font-size: 20px;"></i>
+      </button>
+    </div>
+  </div>
+  <div class="controls">
+    <input type="text" class="" name="name" placeholder="Name" formControlName="name">
+  </div>
+  <div class="controls">
+    <input type="text" class="" name="price" placeholder="Preis" formControlName="price">
+  </div>
+</div>

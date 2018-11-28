@@ -1,0 +1,10 @@
+{
+  "name": "BurgerApp",
+  "version": "0.0.0",
+  "title": "BurgerApp Rest API Dokumentation",
+  "order": ["GetUser", "PostUser"],
+  "template": {
+    "withCompare": true,
+    "withGenerator": true
+  }
+}

@@ -22,6 +22,11 @@ export class BurgerComponent implements OnInit {
         this.burgerDishes = dishes;
       }
     );
+    this.dishService.burgerDishOptionChanged.subscribe(
+      (options: Burger[]) => {
+        this.burgerDishOptions = options;
+      }
+    )
   }
 
   addBurgerDish(dish: Burger) {

@@ -22,6 +22,11 @@ export class SideDishComponent implements OnInit {
         this.sideDishes = dishes;
       }
     );
+    this.dishService.sideDishOptionChanged.subscribe(
+      (sideDishes: SideDish[]) => {
+        this.sideDishOptions = sideDishes;
+      }
+    )
   }
 
   addSideDish(dish: SideDish) {

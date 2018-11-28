@@ -1,0 +1,37 @@
+<form [formGroup]="form">
+  <ng-scrollbar class="container">
+    <div class="content">
+      <div class="row">
+        <div class="col-12">
+          <button class="btn btn-primary float-right" (click)="addBurger()">Hinzufügen</button>
+          <button class="btn btn-primary float-right" style="margin-right: 10px" (click)="saveItems()">Speichern</button>
+          <br>
+          <br>
+          <div formArrayName="forms" *ngFor="let formControl of getForm().controls; let i = index">
+            <div [formGroupName]="i">
+              <div class="row" style="margin-top: 50px">
+                <div class="col-11">
+                  <h2 class="heading">{{formControl.get('head').value}}</h2>
+                </div>
+                <div class="col-1">
+                  <button class="btn btn-danger float-right" (click)="removeAt(i)">
+                    <i class="fa fa-times" style="font-size: 20px;"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="controls">
+                <input type="text" id="name" class="" name="name" placeholder="Name" formControlName="name">
+              </div>
+              <div class="controls">
+                <input type="text" id="price" class="" name="price" placeholder="Preis" formControlName="price">
+              </div>
+              <select class="sub-menu" [formControlName]="'categories'">
+                <option *ngFor="let category of categories; let i = index" [ngValue]="category">{{category}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-scrollbar>
+</form>

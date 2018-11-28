@@ -21,11 +21,7 @@
                *ngIf="!this.auth.loggedIn">
           <i class="fa fa-user-plus"></i> Register
         </a></li>
-        <li class="nav-item"><a routerLink="/account" class="nav-link text-white" routerLinkActive="active"
-               *ngIf="this.auth.loggedIn">
-          <i class="fa fa-user"></i> Account
-        </a></li>
-        <li class="nav-item"><a routerLink="/admin" class="nav-link text-white" routerLinkActive="active"
+        <li class="nav-item"><a routerLink="/item-manager" class="nav-link text-white" routerLinkActive="active"
                *ngIf="this.auth.loggedIn && this.auth.isAdmin">
           <i class="fa fa-lock"></i> Admin
         </a></li>

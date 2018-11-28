@@ -1,0 +1,96 @@
+<div class="container">
+  <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
+    <div class="row">
+      <div class="col-6">
+        <div class="form-group">
+          <label for="lastName">Nachname</label>
+          <input
+            class="form-control"
+            type="text"
+            name="lastName"
+            id="lastName"
+            required
+            minlength="3"
+            ngModel
+            #lastName="ngModel">
+          <small [hidden]="lastName.valid || lastName.pristine"
+                 class="form-text text-muted">
+            Sie müssen Ihren Nachnamen angeben
+          </small>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="firstName">Vorname</label>
+          <input class="form-control"
+                 type="text"
+                 name="firstName"
+                 id="firstName"
+                 ngModel
+                 #firstName="ngModel"
+                 required
+                 minlength="3">
+          <small [hidden]="firstName.valid || firstName.pristine" class="form-text text-muted">
+            Sie müssen Ihren Vornamen angeben
+          </small>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-7">
+        <div class="form-group">
+          <label for="street">Straße</label>
+          <input class="form-control" type="text" name="street" id="street" ngModel #street="ngModel" required minlength="3">
+          <small [hidden]="street.valid || street.pristine" class="form-text text-muted">
+            Sie müssen Ihre Straße angeben
+          </small>
+        </div>
+      </div>
+      <div class="col-5">
+        <div class="form-group">
+          <label for="houseNr">Hausnummer</label>
+          <input class="form-control" type="number" name="houseNr" id="houseNr" ngModel #houseNr="ngModel" required pattern="^[1-9]+[0-9]*$">
+          <small [hidden]="houseNr.valid || houseNr.pristine" class="form-text text-muted">
+            Sie müssen Ihre Hausnummer angeben
+          </small>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-7">
+        <div class="form-group">
+          <label for="town">Stadt</label>
+          <input class="form-control" type="text" name="town" id="town" ngModel #town="ngModel" required minlength="3">
+          <small [hidden]="town.valid || town.pristine" class="form-text text-muted">
+            Sie müssen Ihre Stadt angeben
+          </small>
+        </div>
+      </div>
+      <div class="col-5">
+        <div class="form-group">
+          <label for="plz">PLZ</label>
+          <input class="form-control" type="number" name="plz" id="plz" ngModel #plz="ngModel" required appPLZ>
+          <small [hidden]="plz.valid || plz.pristine" class="form-text text-muted">
+            <div>Sie müssen Ihre Postleitzahl angeben</div>
+          </small>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <label for="email">E-Mail</label>
+          <input class="form-control" type="text" name="email" id="email" ngModel #email="ngModel" required email>
+          <small [hidden]="email.valid || email.pristine" class="form-text text-muted">
+            Sie müssen Ihre E-Mail angeben
+          </small>
+        </div>
+      </div>
+    </div>
+    <div class="row float-right">
+      <div class="col-12">
+        <button class="btn btn-success" type="submit" [disabled]="!form.valid">Speichern</button>
+      </div>
+    </div>
+  </form>
+</div>

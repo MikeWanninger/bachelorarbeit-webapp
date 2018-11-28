@@ -1,0 +1,36 @@
+.vertical-center {
+  min-height: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.panel {
+  width: 100%;
+  margin-top: 100px;
+  background-color: #32383E;
+  color: white;
+  padding: 20px;
+}
+
+.panel-heading {
+  margin-bottom: 20px;
+}
+
+.input-group {
+
+  padding: 20px;
+}
+
+.input-group input {
+  background-color: #32383E;
+  border-color: #212529;
+}
+
+@media only screen
+and (max-width: 450px) {
+
+  .panel {
+    margin-top: 50px;
+  }
+}

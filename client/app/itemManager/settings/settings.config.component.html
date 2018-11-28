@@ -1,0 +1,28 @@
+<form [formGroup]="form">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-user"></i></span>
+          <input class="form-control" type="text" name="username" placeholder="Username"
+                 formControlName="username" required>
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+          <input class="form-control" type="email" name="email" placeholder="Email" formControlName="email"
+                 required>
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-black-tie"></i></span>
+          <select class="form-control" name="role" [formControlName]="'role'">
+            <option value="" disabled>Role</option>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+        <br>
+        <div class="btn btn-success float-right" (click)="saveUser()" type="submit">Speichern</div>
+      </div>
+    </div>
+  </div>
+</form>

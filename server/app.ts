@@ -26,37 +26,37 @@ if (process.env.NODE_ENV === 'test') {
 }
 
 mongoose.Promise = global.Promise;
-// const mongodb = mongoose.connect(mongodbURI, { useMongoClient: true });
+const mongodb = mongoose.connect(mongodbURI, { useMongoClient: true });
 
-// mongodb
-//   .then((db) => {
-//     console.log('Connected to MongoDB on', db.host + ':' + db.port);
+mongodb
+  .then((db) => {
+    console.log('Connected to MongoDB on', db.host + ':' + db.port);
+
+    setRoutes(app);
+
+    app.get('/*', function(req, res) {
+      res.sendFile(path.join(__dirname, '../public/index.html'));
+    });
+
+    if (!module.parent) {
+      app.listen(app.get('port'), () => {
+        console.log('Angular Full Stack listening on port ' + app.get('port'));
+      });
+    }
+
+  })
+  .catch((err) => {
+    console.error(err);
+});
+
+// setRoutes(app);
 //
-//     setRoutes(app);
-//
-//     app.get('/*', function(req, res) {
-//       res.sendFile(path.join(__dirname, '../public/index.html'));
-//     });
-//
-//     if (!module.parent) {
-//       app.listen(app.get('port'), () => {
-//         console.log('Angular Full Stack listening on port ' + app.get('port'));
-//       });
-//     }
-//
-//   })
-//   .catch((err) => {
-//     console.error(err);
+// app.get('/*', function(req, res) {
+//   res.sendFile(path.join(__dirname, '../public/index.html'));
 // });
-
-setRoutes(app);
-
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, '../public/index.html'));
-});
-
-app.listen(app.get('port'), () => {
-  console.log('Angular Full Stack listening on port ' + app.get('port'));
-});
+//
+// app.listen(app.get('port'), () => {
+//   console.log('Angular Full Stack listening on port ' + app.get('port'));
+// });
 
 export { app };

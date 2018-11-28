@@ -1,0 +1,16 @@
+<form [formGroup]="form">
+  <ng-scrollbar class="container">
+    <div class="content">
+      <div class="row">
+        <div class="col-12">
+          <button class="btn btn-primary float-right" (click)="addBurger()">Hinzufügen</button>
+          <button class="btn btn-primary float-right" style="margin-right: 10px" (click)="saveItems()">Speichern</button>
+          <br>
+          <br>
+          <app-item-array formArrayName="forms" [itemsFormArray]="form.get('forms')" (removed)="removeAt($event)">
+          </app-item-array>
+        </div>
+      </div>
+    </div>
+  </ng-scrollbar>
+</form>

@@ -1,0 +1,9 @@
+<div>
+  <app-item-control
+    *ngFor="let formControl of itemsFormArray.controls; let i = index"
+    [index]="i"
+    [item]="formControl"
+    (removed)="removed.emit($event)">
+  </app-item-control>
+</div>
+<!---->

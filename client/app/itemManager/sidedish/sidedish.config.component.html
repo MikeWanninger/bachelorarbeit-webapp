@@ -1,0 +1,53 @@
+<form [formGroup]="form">
+  <ng-scrollbar class="container">
+    <div class="content">
+      <div class="row">
+        <div class="col-12">
+          <button class="btn btn-primary float-right" (click)="addSideDish()">Hinzufügen</button>
+          <button class="btn btn-primary float-right" style="margin-right: 10px" (click)="saveItems()">Speichern</button>
+          <br>
+          <br>
+          <app-item-array formArrayName="forms" [itemsFormArray]="form.get('forms')" (removed)="removeAt($event)">
+          </app-item-array>
+        </div>
+      </div>
+    </div>
+  </ng-scrollbar>
+</form>
+
+
+
+
+<!--<form [formGroup]="form">
+  <ng-scrollbar [config]="config" class="container">
+    <div class="content">
+      <div class="row">
+        <div class="col-12">
+          <button class="btn btn-primary float-right" (click)="addSideDish()">Hinzufügen</button>
+          <button class="btn btn-primary float-right" style="margin-right: 10px" (click)="saveItems()">Speichern</button>
+          <br>
+          <br>
+          <div formArrayName="forms" *ngFor="let formControl of form.get('forms').controls; let i = index">
+            <div [formGroupName]="i">
+              <div class="row" style="margin-top: 50px">
+                <div class="col-11">
+                  <h2 class="heading">{{formControl.get('head').value}}</h2>
+                </div>
+                <div class="col-1">
+                  <button class="btn btn-danger float-right"><i class="fa fa-times" style="font-size: 20px;"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="controls">
+                <input type="text" id="name" class="" name="name" placeholder="Name" formControlName="name">
+              </div>
+              <div class="controls">
+                <input type="text" id="price" class="" name="price" placeholder="Preis" formControlName="price">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-scrollbar>
+</form>-->

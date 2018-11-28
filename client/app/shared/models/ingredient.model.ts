@@ -1,6 +1,7 @@
 
 export class Ingredient {
-  name?: String;
+  _id?: string;
+  name?: string;
   price?: number;
-  category?: String;
+  category?: string;
 }
